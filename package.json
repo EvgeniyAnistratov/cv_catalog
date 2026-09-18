@@ -8,6 +8,10 @@
   "type": "module",
   "scripts": {
     "build": "nest build",
+    "db:generate": "prisma generate",
+    "db:make_migrations": "prisma migrate dev --create-only",
+    "db:migrate_dev": "prisma migrate dev",
+    "db:migrate_deploy": "prisma migrate dev",
     "deploy": "nest deploy",
     "format": "oxfmt --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",

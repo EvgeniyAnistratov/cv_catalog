@@ -1,0 +1,79 @@
+datasource db {
+    provider = "postgresql"
+}
+
+generator client {
+    provider = "prisma-client"
+    output   = "../src/infra/db/prisma"
+}
+
+model Profile {
+    id               Int              @id @default(autoincrement())
+    name             String           @db.VarChar(100)
+    shortDescription String           @map("short_description") @db.VarChar(1000)
+    usefulLinks      UsefulLink[]
+    skillsOnProfiles SkillOnProfile[]
+    workExperience   WorkExperience[]
+    projects         Project[]
+
+    @@map("profile")
+}
+
+model UsefulLink {
+    id        Int     @id @default(autoincrement())
+    link      String  @db.VarChar(2000)
+    profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+    profileId Int     @map("profile_id")
+
+    @@map("useful_link")
+}
+
+model Skill {
+    id               Int              @id @default(autoincrement())
+    name             String           @db.VarChar(100)
+    skillsOnProfiles SkillOnProfile[]
+
+    @@map("skill")
+}
+
+model SkillOnProfile {
+    profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+    profileId Int     @map("profile_id")
+    skill     Skill   @relation(fields: [skillId], references: [id], onDelete: Restrict)
+    skillId   Int     @map("skill_id")
+
+    @@id([profileId, skillId])
+    @@map("skill_on_profile")
+}
+
+model Company {
+    id              Int              @id @default(autoincrement())
+    name            String           @unique @db.VarChar(100)
+    workExperiences WorkExperience[]
+
+    @@map("company")
+}
+
+model WorkExperience {
+    id          Int       @id @default(autoincrement())
+    position    String    @db.VarChar(100)
+    achievement String
+    startedAt   DateTime  @map("started_at")
+    endedAt     DateTime? @map("ended_at")
+    profile     Profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
+    profileId   Int       @map("profile_id")
+    company     Company   @relation(fields: [companyId], references: [id], onDelete: Restrict)
+    companyId   Int       @map("company_id")
+
+    @@map("work_experience")
+}
+
+model Project {
+    id        Int     @id @default(autoincrement())
+    name      String  @db.VarChar(100)
+    link      String  @db.VarChar(2000)
+    profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+    profileId Int     @map("profile_id")
+
+    @@map("project")
+}
