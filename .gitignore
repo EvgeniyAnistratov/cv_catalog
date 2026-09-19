@@ -128,6 +128,9 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
+# Zed settings
+.zed/
+
 # pnpm
 .pnpm-store
 

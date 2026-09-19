@@ -2,7 +2,9 @@ import { defineConfig } from "oxfmt";
 
 export default defineConfig({
     tabWidth: 4,
+    printWidth: 100,
     trailingComma: "all",
+    bracketSpacing: true,
     singleQuote: false,
     sortImports: {
         ignoreCase: true,
