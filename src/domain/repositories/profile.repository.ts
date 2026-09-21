@@ -5,3 +5,5 @@ export interface IProfileRepository {
     findById(profileId: number): Promise<Profile | null>;
     save(profile: Profile): Promise<Profile>;
 }
+
+export const PROFILE_REPOSITORY = Symbol("PROFILE_REPOSITORY");
