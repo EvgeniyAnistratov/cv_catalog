@@ -1,5 +1,5 @@
 export class WorkExperience {
-    private constructor(
+    public constructor(
         public position: string,
         public achievement: string,
         public startedAt: Date,

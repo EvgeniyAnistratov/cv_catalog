@@ -19,6 +19,7 @@
         "strictPropertyInitialization": false,
         "types": ["vitest/globals", "node"],
 
+        "baseUrl": ".",
         "rootDir": "./src",
         "outDir": "./dist",
         "paths": {
