@@ -865,7 +865,10 @@ export type ProfileGetPayload<S extends boolean | null | undefined | ProfileDefa
 
 export type ProfileCountArgs<
     ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
-> = Omit<ProfileFindManyArgs, "select" | "include" | "distinct" | "omit"> & {
+> = Omit<
+    ProfileFindManyArgs,
+    "select" | "include" | "distinct" | "omit" | "relationLoadStrategy"
+> & {
     select?: ProfileCountAggregateInputType | true;
 };
 
@@ -1492,6 +1495,7 @@ export type ProfileFindUniqueArgs<
      * Filter, which Profile to fetch.
      */
     where: Prisma.ProfileWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1516,6 +1520,7 @@ export type ProfileFindUniqueOrThrowArgs<
      * Filter, which Profile to fetch.
      */
     where: Prisma.ProfileWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1570,6 +1575,7 @@ export type ProfileFindFirstArgs<
      * Filter by unique combinations of Profiles.
      */
     distinct?: Prisma.ProfileScalarFieldEnum | Prisma.ProfileScalarFieldEnum[];
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1624,6 +1630,7 @@ export type ProfileFindFirstOrThrowArgs<
      * Filter by unique combinations of Profiles.
      */
     distinct?: Prisma.ProfileScalarFieldEnum | Prisma.ProfileScalarFieldEnum[];
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1678,6 +1685,7 @@ export type ProfileFindManyArgs<
      * Filter by unique combinations of Profiles.
      */
     distinct?: Prisma.ProfileScalarFieldEnum | Prisma.ProfileScalarFieldEnum[];
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1702,6 +1710,7 @@ export type ProfileCreateArgs<
      * The data needed to create a Profile.
      */
     data: Prisma.XOR<Prisma.ProfileCreateInput, Prisma.ProfileUncheckedCreateInput>;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1764,6 +1773,7 @@ export type ProfileUpdateArgs<
      * Choose, which Profile to update.
      */
     where: Prisma.ProfileWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1844,6 +1854,7 @@ export type ProfileUpsertArgs<
      * In case the Profile was found with the provided `where` argument, update it with this data.
      */
     update: Prisma.XOR<Prisma.ProfileUpdateInput, Prisma.ProfileUncheckedUpdateInput>;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1868,6 +1879,7 @@ export type ProfileDeleteArgs<
      * Filter which Profile to delete.
      */
     where: Prisma.ProfileWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**

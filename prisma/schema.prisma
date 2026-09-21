@@ -1,10 +1,12 @@
-datasource db {
-    provider = "postgresql"
-}
-
 generator client {
     provider = "prisma-client"
     output   = "../src/infra/db/prisma"
+    moduleFormat = "esm"
+    previewFeatures = ["relationJoins"]
+}
+
+datasource db {
+    provider = "postgresql"
 }
 
 model Profile {

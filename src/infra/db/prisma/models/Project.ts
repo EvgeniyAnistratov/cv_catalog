@@ -611,7 +611,10 @@ export type ProjectGetPayload<S extends boolean | null | undefined | ProjectDefa
 
 export type ProjectCountArgs<
     ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
-> = Omit<ProjectFindManyArgs, "select" | "include" | "distinct" | "omit"> & {
+> = Omit<
+    ProjectFindManyArgs,
+    "select" | "include" | "distinct" | "omit" | "relationLoadStrategy"
+> & {
     select?: ProjectCountAggregateInputType | true;
 };
 
@@ -1209,6 +1212,7 @@ export type ProjectFindUniqueArgs<
      * Filter, which Project to fetch.
      */
     where: Prisma.ProjectWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1233,6 +1237,7 @@ export type ProjectFindUniqueOrThrowArgs<
      * Filter, which Project to fetch.
      */
     where: Prisma.ProjectWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1287,6 +1292,7 @@ export type ProjectFindFirstArgs<
      * Filter by unique combinations of Projects.
      */
     distinct?: Prisma.ProjectScalarFieldEnum | Prisma.ProjectScalarFieldEnum[];
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1341,6 +1347,7 @@ export type ProjectFindFirstOrThrowArgs<
      * Filter by unique combinations of Projects.
      */
     distinct?: Prisma.ProjectScalarFieldEnum | Prisma.ProjectScalarFieldEnum[];
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1395,6 +1402,7 @@ export type ProjectFindManyArgs<
      * Filter by unique combinations of Projects.
      */
     distinct?: Prisma.ProjectScalarFieldEnum | Prisma.ProjectScalarFieldEnum[];
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1419,6 +1427,7 @@ export type ProjectCreateArgs<
      * The data needed to create a Project.
      */
     data: Prisma.XOR<Prisma.ProjectCreateInput, Prisma.ProjectUncheckedCreateInput>;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1485,6 +1494,7 @@ export type ProjectUpdateArgs<
      * Choose, which Project to update.
      */
     where: Prisma.ProjectWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1569,6 +1579,7 @@ export type ProjectUpsertArgs<
      * In case the Project was found with the provided `where` argument, update it with this data.
      */
     update: Prisma.XOR<Prisma.ProjectUpdateInput, Prisma.ProjectUncheckedUpdateInput>;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1593,6 +1604,7 @@ export type ProjectDeleteArgs<
      * Filter which Project to delete.
      */
     where: Prisma.ProjectWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**

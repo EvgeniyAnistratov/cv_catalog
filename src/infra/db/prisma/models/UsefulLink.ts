@@ -576,7 +576,10 @@ export type UsefulLinkGetPayload<S extends boolean | null | undefined | UsefulLi
 
 export type UsefulLinkCountArgs<
     ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
-> = Omit<UsefulLinkFindManyArgs, "select" | "include" | "distinct" | "omit"> & {
+> = Omit<
+    UsefulLinkFindManyArgs,
+    "select" | "include" | "distinct" | "omit" | "relationLoadStrategy"
+> & {
     select?: UsefulLinkCountAggregateInputType | true;
 };
 
@@ -1176,6 +1179,7 @@ export type UsefulLinkFindUniqueArgs<
      * Filter, which UsefulLink to fetch.
      */
     where: Prisma.UsefulLinkWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1200,6 +1204,7 @@ export type UsefulLinkFindUniqueOrThrowArgs<
      * Filter, which UsefulLink to fetch.
      */
     where: Prisma.UsefulLinkWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1256,6 +1261,7 @@ export type UsefulLinkFindFirstArgs<
      * Filter by unique combinations of UsefulLinks.
      */
     distinct?: Prisma.UsefulLinkScalarFieldEnum | Prisma.UsefulLinkScalarFieldEnum[];
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1312,6 +1318,7 @@ export type UsefulLinkFindFirstOrThrowArgs<
      * Filter by unique combinations of UsefulLinks.
      */
     distinct?: Prisma.UsefulLinkScalarFieldEnum | Prisma.UsefulLinkScalarFieldEnum[];
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1368,6 +1375,7 @@ export type UsefulLinkFindManyArgs<
      * Filter by unique combinations of UsefulLinks.
      */
     distinct?: Prisma.UsefulLinkScalarFieldEnum | Prisma.UsefulLinkScalarFieldEnum[];
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1392,6 +1400,7 @@ export type UsefulLinkCreateArgs<
      * The data needed to create a UsefulLink.
      */
     data: Prisma.XOR<Prisma.UsefulLinkCreateInput, Prisma.UsefulLinkUncheckedCreateInput>;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1458,6 +1467,7 @@ export type UsefulLinkUpdateArgs<
      * Choose, which UsefulLink to update.
      */
     where: Prisma.UsefulLinkWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1548,6 +1558,7 @@ export type UsefulLinkUpsertArgs<
      * In case the UsefulLink was found with the provided `where` argument, update it with this data.
      */
     update: Prisma.XOR<Prisma.UsefulLinkUpdateInput, Prisma.UsefulLinkUncheckedUpdateInput>;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1572,6 +1583,7 @@ export type UsefulLinkDeleteArgs<
      * Filter which UsefulLink to delete.
      */
     where: Prisma.UsefulLinkWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**

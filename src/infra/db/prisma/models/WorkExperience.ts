@@ -924,7 +924,10 @@ export type WorkExperienceGetPayload<
 
 export type WorkExperienceCountArgs<
     ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
-> = Omit<WorkExperienceFindManyArgs, "select" | "include" | "distinct" | "omit"> & {
+> = Omit<
+    WorkExperienceFindManyArgs,
+    "select" | "include" | "distinct" | "omit" | "relationLoadStrategy"
+> & {
     select?: WorkExperienceCountAggregateInputType | true;
 };
 
@@ -1544,6 +1547,7 @@ export type WorkExperienceFindUniqueArgs<
      * Filter, which WorkExperience to fetch.
      */
     where: Prisma.WorkExperienceWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1568,6 +1572,7 @@ export type WorkExperienceFindUniqueOrThrowArgs<
      * Filter, which WorkExperience to fetch.
      */
     where: Prisma.WorkExperienceWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1624,6 +1629,7 @@ export type WorkExperienceFindFirstArgs<
      * Filter by unique combinations of WorkExperiences.
      */
     distinct?: Prisma.WorkExperienceScalarFieldEnum | Prisma.WorkExperienceScalarFieldEnum[];
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1680,6 +1686,7 @@ export type WorkExperienceFindFirstOrThrowArgs<
      * Filter by unique combinations of WorkExperiences.
      */
     distinct?: Prisma.WorkExperienceScalarFieldEnum | Prisma.WorkExperienceScalarFieldEnum[];
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1736,6 +1743,7 @@ export type WorkExperienceFindManyArgs<
      * Filter by unique combinations of WorkExperiences.
      */
     distinct?: Prisma.WorkExperienceScalarFieldEnum | Prisma.WorkExperienceScalarFieldEnum[];
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1760,6 +1768,7 @@ export type WorkExperienceCreateArgs<
      * The data needed to create a WorkExperience.
      */
     data: Prisma.XOR<Prisma.WorkExperienceCreateInput, Prisma.WorkExperienceUncheckedCreateInput>;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1826,6 +1835,7 @@ export type WorkExperienceUpdateArgs<
      * Choose, which WorkExperience to update.
      */
     where: Prisma.WorkExperienceWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1916,6 +1926,7 @@ export type WorkExperienceUpsertArgs<
      * In case the WorkExperience was found with the provided `where` argument, update it with this data.
      */
     update: Prisma.XOR<Prisma.WorkExperienceUpdateInput, Prisma.WorkExperienceUncheckedUpdateInput>;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1940,6 +1951,7 @@ export type WorkExperienceDeleteArgs<
      * Filter which WorkExperience to delete.
      */
     where: Prisma.WorkExperienceWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**

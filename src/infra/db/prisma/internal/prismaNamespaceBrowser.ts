@@ -82,6 +82,13 @@ export const ProfileScalarFieldEnum = {
 export type ProfileScalarFieldEnum =
     (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum];
 
+export const RelationLoadStrategy = {
+    query: "query",
+    join: "join",
+} as const;
+
+export type RelationLoadStrategy = (typeof RelationLoadStrategy)[keyof typeof RelationLoadStrategy];
+
 export const UsefulLinkScalarFieldEnum = {
     id: "id",
     link: "link",

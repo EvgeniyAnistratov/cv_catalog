@@ -717,7 +717,10 @@ export type SkillOnProfileGetPayload<
 
 export type SkillOnProfileCountArgs<
     ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
-> = Omit<SkillOnProfileFindManyArgs, "select" | "include" | "distinct" | "omit"> & {
+> = Omit<
+    SkillOnProfileFindManyArgs,
+    "select" | "include" | "distinct" | "omit" | "relationLoadStrategy"
+> & {
     select?: SkillOnProfileCountAggregateInputType | true;
 };
 
@@ -1332,6 +1335,7 @@ export type SkillOnProfileFindUniqueArgs<
      * Filter, which SkillOnProfile to fetch.
      */
     where: Prisma.SkillOnProfileWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1356,6 +1360,7 @@ export type SkillOnProfileFindUniqueOrThrowArgs<
      * Filter, which SkillOnProfile to fetch.
      */
     where: Prisma.SkillOnProfileWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1412,6 +1417,7 @@ export type SkillOnProfileFindFirstArgs<
      * Filter by unique combinations of SkillOnProfiles.
      */
     distinct?: Prisma.SkillOnProfileScalarFieldEnum | Prisma.SkillOnProfileScalarFieldEnum[];
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1468,6 +1474,7 @@ export type SkillOnProfileFindFirstOrThrowArgs<
      * Filter by unique combinations of SkillOnProfiles.
      */
     distinct?: Prisma.SkillOnProfileScalarFieldEnum | Prisma.SkillOnProfileScalarFieldEnum[];
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1524,6 +1531,7 @@ export type SkillOnProfileFindManyArgs<
      * Filter by unique combinations of SkillOnProfiles.
      */
     distinct?: Prisma.SkillOnProfileScalarFieldEnum | Prisma.SkillOnProfileScalarFieldEnum[];
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1548,6 +1556,7 @@ export type SkillOnProfileCreateArgs<
      * The data needed to create a SkillOnProfile.
      */
     data: Prisma.XOR<Prisma.SkillOnProfileCreateInput, Prisma.SkillOnProfileUncheckedCreateInput>;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1614,6 +1623,7 @@ export type SkillOnProfileUpdateArgs<
      * Choose, which SkillOnProfile to update.
      */
     where: Prisma.SkillOnProfileWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1704,6 +1714,7 @@ export type SkillOnProfileUpsertArgs<
      * In case the SkillOnProfile was found with the provided `where` argument, update it with this data.
      */
     update: Prisma.XOR<Prisma.SkillOnProfileUpdateInput, Prisma.SkillOnProfileUncheckedUpdateInput>;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1728,6 +1739,7 @@ export type SkillOnProfileDeleteArgs<
      * Filter which SkillOnProfile to delete.
      */
     where: Prisma.SkillOnProfileWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**

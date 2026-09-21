@@ -474,7 +474,7 @@ export type SkillGetPayload<S extends boolean | null | undefined | SkillDefaultA
 
 export type SkillCountArgs<
     ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
-> = Omit<SkillFindManyArgs, "select" | "include" | "distinct" | "omit"> & {
+> = Omit<SkillFindManyArgs, "select" | "include" | "distinct" | "omit" | "relationLoadStrategy"> & {
     select?: SkillCountAggregateInputType | true;
 };
 
@@ -1067,6 +1067,7 @@ export type SkillFindUniqueArgs<
      * Filter, which Skill to fetch.
      */
     where: Prisma.SkillWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1091,6 +1092,7 @@ export type SkillFindUniqueOrThrowArgs<
      * Filter, which Skill to fetch.
      */
     where: Prisma.SkillWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1145,6 +1147,7 @@ export type SkillFindFirstArgs<
      * Filter by unique combinations of Skills.
      */
     distinct?: Prisma.SkillScalarFieldEnum | Prisma.SkillScalarFieldEnum[];
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1199,6 +1202,7 @@ export type SkillFindFirstOrThrowArgs<
      * Filter by unique combinations of Skills.
      */
     distinct?: Prisma.SkillScalarFieldEnum | Prisma.SkillScalarFieldEnum[];
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1253,6 +1257,7 @@ export type SkillFindManyArgs<
      * Filter by unique combinations of Skills.
      */
     distinct?: Prisma.SkillScalarFieldEnum | Prisma.SkillScalarFieldEnum[];
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1277,6 +1282,7 @@ export type SkillCreateArgs<
      * The data needed to create a Skill.
      */
     data: Prisma.XOR<Prisma.SkillCreateInput, Prisma.SkillUncheckedCreateInput>;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1339,6 +1345,7 @@ export type SkillUpdateArgs<
      * Choose, which Skill to update.
      */
     where: Prisma.SkillWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1419,6 +1426,7 @@ export type SkillUpsertArgs<
      * In case the Skill was found with the provided `where` argument, update it with this data.
      */
     update: Prisma.XOR<Prisma.SkillUpdateInput, Prisma.SkillUncheckedUpdateInput>;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
@@ -1443,6 +1451,7 @@ export type SkillDeleteArgs<
      * Filter which Skill to delete.
      */
     where: Prisma.SkillWhereUniqueInput;
+    relationLoadStrategy?: Prisma.RelationLoadStrategy;
 };
 
 /**
