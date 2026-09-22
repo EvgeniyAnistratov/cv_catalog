@@ -12,6 +12,7 @@ import { PresentationModule } from "./presentation/presentation.module";
         ConfigModule.forRoot({
             isGlobal: true,
             validate: validateEnv,
+            expandVariables: true,
         }),
         GraphQLModule.forRoot<ApolloDriverConfig>({
             driver: ApolloDriver,

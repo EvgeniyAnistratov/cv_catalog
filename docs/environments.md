@@ -18,7 +18,33 @@ Host address on which the application will listen for incoming requests.<br />
 Default: **3000** <br/>
 Port number on which the application will listen for incoming requests.<br />
 
+## DB_HOST
+
+Default: **postgres** <br/>
+PostgreSQL server host used by the application
+
+## DB_NAME
+
+Default: **cv_catalog_db** <br/>
+Name of the database used by the application
+
+## DB_PASSWORD
+
+Default: **\<not set>** <br/>
+Password for the PostgreSQL user
+
+## DB_PORT
+
+Default: **5432** <br/>
+PostgreSQL server port
+
+## DB_USER
+
+Default: **postgres** <br/>
+Username for connecting to the PostgreSQL database
+
 ## DB_URL
 
-Default: **postgres://postgres:<password>@postgres:5432/cv_catalog_db** <br/>
-Connection string for the PostgreSQL database. Don't forget to set the password.<br />
+Default: **postgresql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}** <br/>
+Connection string for the PostgreSQL database.
+This string is automatically generated using the other environment variables.<br />
