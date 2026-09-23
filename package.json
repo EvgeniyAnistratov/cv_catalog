@@ -37,6 +37,7 @@
         "@nestjs/platform-express": "^12.0.1",
         "@prisma/adapter-pg": "^7.10.0",
         "@prisma/client": "^7.10.0",
+        "@strv/nestjs-dataloader": "^0.4.2",
         "class-transformer": "^0.5.1",
         "graphql": "^16.14.2",
         "pg": "^8.23.0",

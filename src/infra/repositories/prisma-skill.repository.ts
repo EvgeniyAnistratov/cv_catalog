@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { plainToInstance } from "class-transformer";
 
-import type { ISkillRepository } from "@/domain/repositories/skill.repository";
+import type { ISkillRepository, SkillOnProfile } from "@/domain/repositories/skill.repository";
 
 import { Skill } from "@/domain/entities/skill.entity";
 
@@ -11,18 +11,18 @@ import { PrismaService } from "../db/prisma-service";
 export class PrismaSkillRepository implements ISkillRepository {
     constructor(private readonly prisma: PrismaService) {}
 
-    async findByProfileIds(profileIds: number[]): Promise<Skill[]> {
-        const result = await this.prisma.skill.findMany({
+    async findByProfileIds(profileIds: number[]): Promise<SkillOnProfile[]> {
+        const result = await this.prisma.skillOnProfile.findMany({
             relationLoadStrategy: "join",
-            where: {
-                skillsOnProfiles: {
-                    some: {
-                        profileId: { in: profileIds },
-                    },
-                },
+            where: { profileId: { in: profileIds } },
+            include: {
+                skill: true,
             },
         });
 
-        return result.map((row) => plainToInstance(Skill, row));
+        return result.map((flatRow) => ({
+            profileId: flatRow.profileId,
+            skill: plainToInstance(Skill, flatRow.skill),
+        }));
     }
 }
