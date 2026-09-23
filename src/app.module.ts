@@ -5,7 +5,7 @@ import { ConfigModule } from "@nestjs/config";
 import { GraphQLModule } from "@nestjs/graphql";
 
 import { validateEnv } from "./infra/config/env";
-import { PresentationModule } from "./presentation/presentation.module";
+import { PresentationModule } from "./presentation/modules/presentation.module";
 
 @Module({
     imports: [
