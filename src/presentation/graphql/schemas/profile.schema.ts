@@ -1,5 +1,7 @@
 import { Field, Int, ObjectType } from "@nestjs/graphql";
 
+import { Profile } from "@/domain/entities/profile.entity";
+
 import { ProjectSchema } from "./project.shcema";
 import { SkillSchema } from "./skill.schema";
 import { UsefulLinkSchema } from "./useful-link.schema";
@@ -19,7 +21,7 @@ export class ProfileSchema {
     @Field(() => [UsefulLinkSchema])
     usefulLinks?: UsefulLinkSchema[];
 
-    @Field(() => [SkillSchema])
+    @Field((type) => [SkillSchema])
     skills?: SkillSchema[];
 
     @Field(() => [WorkExperienceSchema])
@@ -27,4 +29,12 @@ export class ProfileSchema {
 
     @Field(() => [ProjectSchema])
     projects?: ProjectSchema[];
+
+    static fromEntity(entity: Profile) {
+        const schema = new ProfileSchema();
+        schema.id = entity.id!;
+        schema.name = entity.name;
+        schema.shortDescription = entity.shortDescription;
+        return schema;
+    }
 }
