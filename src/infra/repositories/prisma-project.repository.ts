@@ -16,6 +16,9 @@ export class PrismaProjectRepository implements IProjectRepository {
             where: {
                 profileId: { in: profileIds },
             },
+            orderBy: {
+                id: "desc",
+            },
         });
 
         return result.map((row) => plainToInstance(Project, row));

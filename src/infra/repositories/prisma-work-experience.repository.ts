@@ -15,6 +15,9 @@ export class PrismaWorkExperienceRepository implements IWorkExperienceRepository
             where: {
                 profileId: { in: profileIds },
             },
+            orderBy: {
+                startedAt: "desc",
+            },
         });
 
         return result.map((row) => plainToInstance(WorkExperience, row));

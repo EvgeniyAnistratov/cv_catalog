@@ -18,6 +18,9 @@ export class PrismaSkillRepository implements ISkillRepository {
             include: {
                 skill: true,
             },
+            orderBy: {
+                skillId: "desc",
+            },
         });
 
         return result.map((flatRow) => ({

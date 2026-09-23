@@ -15,6 +15,9 @@ export class PrismaUsefulLinkRepository implements IUsefulLinkRepository {
             where: {
                 profileId: { in: profileIds },
             },
+            orderBy: {
+                id: "desc",
+            },
         });
 
         return result.map((row) => plainToInstance(UsefulLink, row));

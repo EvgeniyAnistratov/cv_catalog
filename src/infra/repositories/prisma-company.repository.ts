@@ -31,6 +31,9 @@ export class PrismaCompanyRepository implements ICompanyRepository {
                 profileId: true,
                 companyId: true,
             },
+            orderBy: {
+                id: "desc",
+            },
         });
 
         return result.map((flatRow) => ({
