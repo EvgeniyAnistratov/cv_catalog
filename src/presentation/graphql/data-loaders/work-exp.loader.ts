@@ -1,12 +1,13 @@
 import { Injectable } from "@nestjs/common";
 import { Aggregated, DataloaderFactory, LoaderFrom } from "@strv/nestjs-dataloader";
 
-import { WorkExperience } from "@/domain/entities/work-experience.entity";
-import { IWorkExperienceRepository } from "@/domain/repositories/work-experience.repository";
+import type { IWorkExperienceRepository } from "@/domain/repositories/work-experience.repository";
 
-import { ProfileId } from "./loader.types";
+import type { ProfileId } from "./loader.types";
 
-type ProfileWorkExps = Aggregated<ProfileId, WorkExperience>;
+import { WorkExperienceSchema } from "../schemas/work-experience.schema";
+
+type ProfileWorkExps = Aggregated<ProfileId, WorkExperienceSchema>;
 
 @Injectable()
 export class ProfileWorkExpsLoaderFactory extends DataloaderFactory<ProfileId, ProfileWorkExps> {
@@ -16,11 +17,12 @@ export class ProfileWorkExpsLoaderFactory extends DataloaderFactory<ProfileId, P
 
     async load(ids: ProfileId[]) {
         const result = await this.workExpRepository.findByProfileIds(ids);
-        return this.aggregateBy(result, (workExp) => workExp.profileId);
+        const schemas = result.map((workExp) => WorkExperienceSchema.fromEntity(workExp));
+        return this.aggregateBy(schemas, (workExp) => workExp.profileId);
     }
 
     id(entity: ProfileWorkExps) {
-        // returns workExp.profileId
+        // returns workExperienceSchema.profileId
         return entity.id;
     }
 }

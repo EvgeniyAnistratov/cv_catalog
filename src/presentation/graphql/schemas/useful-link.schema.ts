@@ -10,10 +10,13 @@ export class UsefulLinkSchema {
     @Field()
     link: string;
 
+    profileId: number;
+
     static fromEntity(entity: UsefulLink) {
         const schema = new UsefulLinkSchema();
         schema.id = entity.id!;
         schema.link = entity.link;
+        schema.profileId = entity.profileId;
         return schema;
     }
 }

@@ -1,12 +1,13 @@
 import { Injectable } from "@nestjs/common";
 import { Aggregated, DataloaderFactory, LoaderFrom } from "@strv/nestjs-dataloader";
 
-import { UsefulLink } from "@/domain/entities/useful-link.entity";
-import { IUsefulLinkRepository } from "@/domain/repositories/useful-link.repository";
+import type { IUsefulLinkRepository } from "@/domain/repositories/useful-link.repository";
 
-import { ProfileId } from "./loader.types";
+import type { ProfileId } from "./loader.types";
 
-type ProfileUsefulLink = Aggregated<ProfileId, UsefulLink>;
+import { UsefulLinkSchema } from "../schemas/useful-link.schema";
+
+type ProfileUsefulLink = Aggregated<ProfileId, UsefulLinkSchema>;
 
 @Injectable()
 export class ProfileUsefulLinksLoaderFactory extends DataloaderFactory<
@@ -19,11 +20,12 @@ export class ProfileUsefulLinksLoaderFactory extends DataloaderFactory<
 
     async load(ids: ProfileId[]) {
         const result = await this.usefulLinkRepository.findByProfileIds(ids);
-        return this.aggregateBy(result, (usefulLink) => usefulLink.profileId);
+        const schemas = result.map((usefulLink) => UsefulLinkSchema.fromEntity(usefulLink));
+        return this.aggregateBy(schemas, (usefulLink) => usefulLink.profileId);
     }
 
     id(entity: ProfileUsefulLink) {
-        // returns usefulLink.profileId
+        // returns usefulLinkSchema.profileId
         return entity.id;
     }
 }

@@ -1,15 +1,14 @@
 import { Injectable } from "@nestjs/common";
-import { Aggregated, DataloaderFactory, LoaderFrom } from "@strv/nestjs-dataloader";
+import { DataloaderFactory, LoaderFrom } from "@strv/nestjs-dataloader";
 
-import { Company } from "@/domain/entities/company.entity";
-import { ICompanyRepository } from "@/domain/repositories/company.repository";
+import type { ICompanyRepository } from "@/domain/repositories/company.repository";
 
-import { WorkExpId } from "./loader.types";
+import type { WorkExpId } from "./loader.types";
 
-type WorkExpCompany = Aggregated<WorkExpId, Company>;
+import { CompanySchema } from "../schemas/company.schema";
 
 @Injectable()
-export class WorkExpCompaniesLoaderFactory extends DataloaderFactory<WorkExpId, WorkExpCompany> {
+export class WorkExpCompaniesLoaderFactory extends DataloaderFactory<WorkExpId, CompanySchema> {
     constructor(readonly companyRepository: ICompanyRepository) {
         super();
     }
@@ -17,27 +16,24 @@ export class WorkExpCompaniesLoaderFactory extends DataloaderFactory<WorkExpId, 
     async load(ids: WorkExpId[]) {
         const companyOnWorkExps = await this.companyRepository.findByWorkExpIds(ids);
 
-        const skillsMap = new Map<WorkExpId, Company[]>();
+        const companyMap = new Map<WorkExpId, CompanySchema>();
 
         for (const companyOnWorkExp of companyOnWorkExps) {
             const workExpId = companyOnWorkExp.workExpId;
 
-            if (!skillsMap.has(workExpId)) {
-                skillsMap.set(workExpId, []);
-            }
-
-            skillsMap.get(workExpId)!.push(companyOnWorkExp.company);
+            companyMap.set(
+                workExpId,
+                CompanySchema.fromEntity(workExpId, companyOnWorkExp.company),
+            );
         }
 
-        return ids.map((workExpId) => ({
-            id: workExpId,
-            values: skillsMap.get(workExpId) || [],
-        }));
+        // The database guarantees the existence of the company identifier
+        return ids.map((workExpId) => companyMap.get(workExpId)!);
     }
 
-    id(entity: WorkExpCompany) {
-        // returns company.workExpId
-        return entity.id;
+    id(entity: CompanySchema) {
+        // returns companySchema.workExpId
+        return entity.workExpId;
     }
 }
 

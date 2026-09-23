@@ -1,12 +1,13 @@
 import { Injectable } from "@nestjs/common";
 import { Aggregated, DataloaderFactory, LoaderFrom } from "@strv/nestjs-dataloader";
 
-import { Skill } from "@/domain/entities/skill.entity";
-import { ISkillRepository } from "@/domain/repositories/skill.repository";
+import type { ISkillRepository } from "@/domain/repositories/skill.repository";
 
-import { ProfileId } from "./loader.types";
+import type { ProfileId } from "./loader.types";
 
-type ProfileSkills = Aggregated<ProfileId, Skill>;
+import { SkillSchema } from "../schemas/skill.schema";
+
+type ProfileSkills = Aggregated<ProfileId, SkillSchema>;
 
 @Injectable()
 export class ProfileSkillsLoaderFactory extends DataloaderFactory<ProfileId, ProfileSkills> {
@@ -17,7 +18,7 @@ export class ProfileSkillsLoaderFactory extends DataloaderFactory<ProfileId, Pro
     async load(ids: ProfileId[]) {
         const skillsOnProfiles = await this.skillRepository.findByProfileIds(ids);
 
-        const skillsMap = new Map<ProfileId, Skill[]>();
+        const skillsMap = new Map<ProfileId, SkillSchema[]>();
 
         for (const skillOnProfile of skillsOnProfiles) {
             const profileId = skillOnProfile.profileId;
@@ -26,7 +27,7 @@ export class ProfileSkillsLoaderFactory extends DataloaderFactory<ProfileId, Pro
                 skillsMap.set(profileId, []);
             }
 
-            skillsMap.get(profileId)!.push(skillOnProfile.skill);
+            skillsMap.get(profileId)!.push(SkillSchema.fromEntity(skillOnProfile.skill));
         }
 
         return ids.map((profileId) => ({
@@ -36,9 +37,9 @@ export class ProfileSkillsLoaderFactory extends DataloaderFactory<ProfileId, Pro
     }
 
     id(entity: ProfileSkills) {
-        // returns skill.profileId
+        // returns skillSchema.profileId
         return entity.id;
     }
 }
 
-export type ProfileProjectsLoader = LoaderFrom<ProfileSkillsLoaderFactory>;
+export type ProfileSkillsLoader = LoaderFrom<ProfileSkillsLoaderFactory>;

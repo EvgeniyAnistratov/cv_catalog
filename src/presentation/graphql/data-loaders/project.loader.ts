@@ -1,12 +1,13 @@
 import { Injectable } from "@nestjs/common";
 import { Aggregated, DataloaderFactory, LoaderFrom } from "@strv/nestjs-dataloader";
 
-import { Project } from "@/domain/entities/project.entity";
-import { IProjectRepository } from "@/domain/repositories/project.repository";
+import type { IProjectRepository } from "@/domain/repositories/project.repository";
 
-import { ProfileId } from "./loader.types";
+import type { ProfileId } from "./loader.types";
 
-type ProfileProjects = Aggregated<ProfileId, Project>;
+import { ProjectSchema } from "../schemas/project.shcema";
+
+type ProfileProjects = Aggregated<ProfileId, ProjectSchema>;
 
 @Injectable()
 export class ProfileProjectsLoaderFactory extends DataloaderFactory<ProfileId, ProfileProjects> {
@@ -16,11 +17,12 @@ export class ProfileProjectsLoaderFactory extends DataloaderFactory<ProfileId, P
 
     async load(ids: ProfileId[]) {
         const result = await this.projectRepository.findByProfileIds(ids);
-        return this.aggregateBy(result, (project) => project.profileId);
+        const schemas = result.map((project) => ProjectSchema.fromEntity(project));
+        return this.aggregateBy(schemas, (project) => project.profileId);
     }
 
     id(entity: ProfileProjects) {
-        // returns project.profileId
+        // returns projectSchema.profileId
         return entity.id;
     }
 }
