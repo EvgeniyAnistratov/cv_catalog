@@ -26,7 +26,7 @@ export class ProfileResolver {
         private getProfilesUseCase: GetProfilesUseCase,
     ) {}
 
-    @Query(() => ProfileSchema)
+    @Query(() => ProfileSchema, { nullable: true })
     async profile(@Args("id", { type: () => Int }) id: number) {
         return await this.getProfileUseCase.execute({ id: id });
     }
