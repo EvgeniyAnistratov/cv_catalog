@@ -12,7 +12,7 @@ export class PrismaProfileRepository implements IProfileRepository {
     constructor(private readonly prisma: PrismaService) {}
 
     async findAll(): Promise<Profile[]> {
-        const result = await this.prisma.profile.findMany({ orderBy: { id: "desc" } });
+        const result = await this.prisma.profile.findMany({ orderBy: { name: "asc" } });
         return result.map((row) => plainToInstance(Profile, row));
     }
 
