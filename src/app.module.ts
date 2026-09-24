@@ -6,8 +6,10 @@ import { GraphQLModule } from "@nestjs/graphql";
 import { DataloaderModule } from "@strv/nestjs-dataloader";
 
 import { validateEnv } from "./infra/config/env";
+import { formatError } from "./presentation/graphql/error-handler";
 import { DataLoadersModule } from "./presentation/modules/data-loaders.module";
 import { PresentationModule } from "./presentation/modules/resolvers.module";
+import { RouteModule } from "./presentation/modules/routes.module";
 
 @Module({
     imports: [
@@ -19,6 +21,8 @@ import { PresentationModule } from "./presentation/modules/resolvers.module";
         }),
         GraphQLModule.forRoot<ApolloDriverConfig>({
             driver: ApolloDriver,
+            debug: false,
+            formatError: formatError,
             graphiql: false,
             autoSchemaFile: true,
             sortSchema: true,
@@ -31,6 +35,7 @@ import { PresentationModule } from "./presentation/modules/resolvers.module";
         }),
         PresentationModule,
         DataLoadersModule,
+        RouteModule,
     ],
 })
 export class AppModule {}
