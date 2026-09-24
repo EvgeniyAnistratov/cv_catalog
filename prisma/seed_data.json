@@ -1,0 +1,271 @@
+{
+    "skills": [
+        { "id": 1, "name": "JavaScript" },
+        { "id": 2, "name": "TypeScript" },
+        { "id": 3, "name": "React" },
+        { "id": 4, "name": "Next.js" },
+        { "id": 5, "name": "TailwindCSS" },
+        { "id": 6, "name": "Node.js" },
+        { "id": 7, "name": "NestJS" },
+        { "id": 8, "name": "PostgreSQL" },
+        { "id": 9, "name": "Docker" },
+        { "id": 10, "name": "Kubernetes" },
+        { "id": 11, "name": "AWS" },
+        { "id": 12, "name": "CI/CD (GitLab)" },
+        { "id": 13, "name": "Agile/Scrum" },
+        { "id": 14, "name": "Jira/Confluence" },
+        { "id": 15, "name": "Risk Management" },
+        { "id": 16, "name": "Python" },
+        { "id": 17, "name": "SQL / BigQuery" },
+        { "id": 18, "name": "Tableau / PowerBI" },
+        { "id": 19, "name": "Pandas / NumPy" },
+        { "id": 20, "name": "Go" },
+        { "id": 21, "name": "System Design" },
+        { "id": 22, "name": "SQL" },
+        { "id": 23, "name": "GitHub" },
+        { "id": 24, "name": "Django Rest Framework" },
+        { "id": 25, "name": "FastAPI" },
+        { "id": 26, "name": "SQLAlchemy" },
+        { "id": 27, "name": "Celery" },
+        { "id": 28, "name": "Pytest" },
+        { "id": 29, "name": "Redis" },
+        { "id": 30, "name": "Apache Kafka" },
+        { "id": 31, "name": "Clean Architecture" },
+        { "id": 32, "name": "Bun" },
+        { "id": 33, "name": "Elysia" },
+        { "id": 34, "name": "DrizzleORM" },
+        { "id": 35, "name": "Web Socket" }
+    ],
+    "companies": [
+        { "id": 1, "name": "Global Tech Solutions" },
+        { "id": 2, "name": "FinTech Innovations" },
+        { "id": 3, "name": "Retail Digital" },
+        { "id": 4, "name": "Cloud Infra Corp" },
+        { "id": 5, "name": "Cyber Security Systems" },
+        { "id": 6, "name": "Delivery Express" },
+        { "id": 7, "name": "Data Insight Group" },
+        { "id": 8, "name": "Enterprise Software Inc" },
+        { "id": 9, "name": "Metasharks LLC" },
+        { "id": 10, "name": "Market Startup" },
+        { "id": 11, "name": "Education Startup" }
+    ],
+    "profiles": [
+        {
+            "name": "Анистратов Евгений",
+            "shortDescription": "Backend Developer (3+ лет опыта). Опыт самостоятельного проектирования архитектуры и БД, асинхронной обработки данных, интеграции с Kafka и SSO (Active Directory). Работал как единственный backend-разработчик на проектах, принимал архитектурные решения, участвовал в code review и решении production-инцидентов.",
+            "projects": [
+                {
+                    "name": "CV catalog",
+                    "link": "https://github.com/EvgeniyAnistratov/cv_catalog"
+                },
+                {
+                    "name": "Simple Auth Django Backend",
+                    "link": "https://github.com/EvgeniyAnistratov/TestAuthApp"
+                }
+            ],
+            "usefulLinks": [
+                {
+                    "link": "https://stary-oskol.hh.ru/resume/8c6a7eaeff111837610039ed1f457051556937?hhtmFrom=main"
+                }
+            ],
+            "skills": [
+                1, 2, 6, 7, 8, 9, 16, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35
+            ],
+            "workExperience": [
+                {
+                    "position": "Backend Developer",
+                    "achievement": "Самостоятельно спроектировал и реализовал backend проекта. Покрытие backend-кода тестами — более 70%. Проект готовится к beta-тестированию и привлечению первых пользователей.",
+                    "startedAt": "2026-05-01",
+                    "endedAt": null,
+                    "companyId": 11
+                },
+                {
+                    "position": "Backend Developer",
+                    "achievement": "Успешно изменил архитектуру проекта для поддержки разных биржевых REST API. Реализовал поддержку одной биржевой REST API",
+                    "startedAt": "2025-03-01",
+                    "endedAt": "2025-06-20",
+                    "companyId": 10
+                },
+                {
+                    "position": "Разработчик программного обеспечения",
+                    "achievement": "Разработал инструмент обработки данных для dashboard системы с поддержкой 9 разных типов входных данных.",
+                    "startedAt": "2023-06-01",
+                    "endedAt": "2025-02-06",
+                    "companyId": 9
+                },
+                {
+                    "position": "Разработчик программного обеспечения",
+                    "achievement": "Оптимизировал запросы в legacy системе с 1,5 млн записей, решив проблему с падающими sql запросами. Разработал инструмент прогнозирования грузопотоков для транспортной компании с анализом от 10 до 15 млн. исходных записей.",
+                    "startedAt": "2022-04-01",
+                    "endedAt": "2023-02-14",
+                    "companyId": 9
+                }
+            ]
+        },
+        {
+            "name": "Антон Иванов",
+            "shortDescription": "Frontend Developer (7+ лет опыта). Специализируюсь на создании высокопроизводительных SPA/SSR приложений на React и Next.js.",
+            "projects": [
+                {
+                    "name": "E-Commerce Storefront",
+                    "link": "http://non-existent.project.random/e-commerce-storefront"
+                },
+                {
+                    "name": "Component Library UI",
+                    "link": "http://non-existent.project.random/component-library-ui"
+                }
+            ],
+            "usefulLinks": [
+                { "link": "http://non-existent.linkedin/profile/alex123" },
+                { "link": "http://non-existent.telegram/@alex123" }
+            ],
+            "skills": [1, 2, 3, 4, 5],
+            "workExperience": [
+                {
+                    "position": "Senior Frontend Developer",
+                    "achievement": "Перевел проект на Next.js, увеличив Core Web Vitals на 40%.",
+                    "startedAt": "2022-03-01",
+                    "endedAt": null,
+                    "companyId": 2
+                },
+                {
+                    "position": "Frontend Developer",
+                    "achievement": "Разработал и внедрил внутреннюю UI-библиотеку компонентов.",
+                    "startedAt": "2019-05-01",
+                    "endedAt": "2022-02-28",
+                    "companyId": 1
+                },
+                {
+                    "position": "Junior Frontend Developer",
+                    "achievement": "Адаптировал сайт под мобильные устройства, увеличив конверсию.",
+                    "startedAt": "2017-08-01",
+                    "endedAt": "2019-04-30",
+                    "companyId": 3
+                }
+            ]
+        },
+        {
+            "name": "Дмитрий Петров",
+            "shortDescription": "DevOps Engineer (10+ лет опыта). Эксперт в автоматизации инфраструктуры, контейнеризации и построении отказоустойчивых CI/CD процессов.",
+            "projects": [
+                {
+                    "name": "Automated Kubernetes Setup",
+                    "link": "http://non-existent.project.random/automated-kubernetes-setup"
+                }
+            ],
+            "usefulLinks": [{ "link": "http://non-existent.linkedin/profile/dmitrii456" }],
+            "skills": [9, 10, 11, 12],
+            "workExperience": [
+                {
+                    "position": "Lead DevOps Engineer",
+                    "achievement": "Мигрировал инфраструктуру в AWS, сократив расходы на 25%.",
+                    "startedAt": "2021-01-01",
+                    "endedAt": null,
+                    "companyId": 4
+                },
+                {
+                    "position": "DevOps Engineer",
+                    "achievement": "Настроил CI/CD процессы \"с нуля\" для 15 микросервисов.",
+                    "startedAt": "2016-04-01",
+                    "endedAt": "2020-12-31",
+                    "companyId": 5
+                }
+            ]
+        },
+        {
+            "name": "Мария Сидорова",
+            "shortDescription": "Project Manager (4+ года опыта). Успешно управляю кросс-функциональными командами, внедряю Agile-практики и контролирую риски.",
+            "projects": [
+                {
+                    "name": "Corporate CRM System",
+                    "link": "http://non-existent.project.random/corporate-crm-system"
+                }
+            ],
+            "usefulLinks": [{ "link": "http://non-existent.linkedin/profile/mariya9856" }],
+            "skills": [13, 14, 15],
+            "workExperience": [
+                {
+                    "position": "Project Manager",
+                    "achievement": "Успешно запустила CRM-систему в срок, сэкономив 10% бюджета.",
+                    "startedAt": "2024-01-01",
+                    "endedAt": null,
+                    "companyId": 1
+                },
+                {
+                    "position": "Scrum Master / PM",
+                    "achievement": "Внедрила Agile/Scrum в 3 командах, увеличив Time-to-Market на 15%.",
+                    "startedAt": "2022-06-01",
+                    "endedAt": "2023-12-31",
+                    "companyId": 6
+                }
+            ]
+        },
+        {
+            "name": "Елена Козлова",
+            "shortDescription": "Data Analyst (6+ лет опыта). Превращаю сырые данные в бизнес-метрики, строю интерактивные дашборды и прогнозирую тренды.",
+            "projects": [
+                {
+                    "name": "Predictive Sales Model",
+                    "link": "http://non-existent.project.random/predictive-sales-model"
+                }
+            ],
+            "usefulLinks": [{ "link": "http://non-existent.linkedin/profile/elena741552" }],
+            "skills": [16, 17, 18, 19],
+            "workExperience": [
+                {
+                    "position": "Senior Data Analyst",
+                    "achievement": "Разработала систему дашбордов для топ-менеджмента компании.",
+                    "startedAt": "2020-02-01",
+                    "endedAt": null,
+                    "companyId": 7
+                }
+            ]
+        },
+        {
+            "name": "Сергей Федоров",
+            "shortDescription": "Backend Developer (15+ лет опыта). Проектирую высоконагруженные распределенные системы, микросервисную архитектуру и базы данных.",
+            "projects": [
+                {
+                    "name": "Distributed Message Broker",
+                    "link": "http://non-existent.project.random/distributed-message-broker"
+                },
+                {
+                    "name": "Billing Core API",
+                    "link": "http://non-existent.project.random/billing-core-api"
+                }
+            ],
+            "usefulLinks": [{ "link": "http://non-existent.linkedin/profile/sergei9855241" }],
+            "skills": [6, 7, 8, 20, 21],
+            "workExperience": [
+                {
+                    "position": "Principal Backend Engineer",
+                    "achievement": "Разработал ядро биллинговой системы с нагрузкой 50k RPS.",
+                    "startedAt": "2023-05-01",
+                    "endedAt": null,
+                    "companyId": 2
+                },
+                {
+                    "position": "Team Lead Backend Developer",
+                    "achievement": "Руководил командой из 8 бэкенд-разработчиков на Go/Node.js.",
+                    "startedAt": "2018-09-01",
+                    "endedAt": "2023-04-30",
+                    "companyId": 8
+                },
+                {
+                    "position": "Senior Backend Developer",
+                    "achievement": "Оптимизировал SQL-запросы в БД, снизив нагрузку на сервера в 2 раза.",
+                    "startedAt": "2014-03-01",
+                    "endedAt": "2018-08-31",
+                    "companyId": 4
+                },
+                {
+                    "position": "Software Engineer",
+                    "achievement": "Разрабатывал модули монолитного веб-приложения на Python.",
+                    "startedAt": "2011-06-01",
+                    "endedAt": "2014-02-28",
+                    "companyId": 1
+                }
+            ]
+        }
+    ]
+}
