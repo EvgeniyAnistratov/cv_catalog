@@ -1,0 +1,10 @@
+node_modules/
+dist/
+docs/
+test/
+.data/
+docker-compose.yaml
+Containerfile
+.env
+.gitignore
+.git

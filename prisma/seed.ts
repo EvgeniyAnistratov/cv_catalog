@@ -21,6 +21,12 @@ async function loadSeedData(path: string) {
 }
 
 async function main() {
+    const existedProfiles = await prisma.profile.count();
+
+    if (existedProfiles) {
+        console.log("\nPrisma: skip seeding because of existing profiles");
+        return;
+    }
     const seedData = await loadSeedData("./seed_data.json");
 
     const companies = new Map<number, any>();
