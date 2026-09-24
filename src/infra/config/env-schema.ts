@@ -6,7 +6,7 @@ export const envSchema = z.object({
 
     DB_HOST: z.string().default("postgres"),
     DB_NAME: z.string().default("cv_catalog_db"),
-    DB_PASSWORD: z.string(),
+    DB_PASSWORD: z.string().default("postgres"),
     DB_PORT: z.coerce.number().default(5432),
     DB_USER: z.string().default("postgres"),
     DB_URL: z.string(),

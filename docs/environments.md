@@ -30,7 +30,7 @@ Name of the database used by the application
 
 ## DB_PASSWORD
 
-Default: **\<not set>** <br/>
+Default: **postgres** <br/>
 Password for the PostgreSQL user
 
 ## DB_PORT

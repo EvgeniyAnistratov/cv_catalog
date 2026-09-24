@@ -7,7 +7,8 @@ services:
             - .env
         image: cv-catalog-app-migrations
         depends_on:
-            - postgres
+            postgres:
+                condition: service_healthy
 
     app:
         build:
